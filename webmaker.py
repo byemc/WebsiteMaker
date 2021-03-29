@@ -21,25 +21,14 @@ try:
             sys.exit()
 except FileNotFoundError:
     print('FileNotFound, making the file')
-
 print('Grabbing header file')
-
 headertitle = open("headertemp.html", 'rt') # opens 'headertemp.html' as a text file in read-only mode
-
 print('Header grabbed. Tech info:', headertitle)
-
 print('Grabbing Part 2 of the Header')
-
 header = open('headertemp2.html', 'rt')
-
 print('Header grabbed. Tech Info:', header)
-
 result = headertitle.read() + title + header.read() + '<h2>' + title2 + '</h2> \n <p>' + body + '</p> \n\n\n\n <p><small><small><small>Made with Website Maker by ByeMC</small></small></small></p>'
-
 print('Current result is: \n', result)
-
 resultfile = open(filename, "wt")
-
 resultfile.write(result)
-
 print('FILE WRITTEN')
