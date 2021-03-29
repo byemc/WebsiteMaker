@@ -51,11 +51,14 @@ titlelabel = ttk.Label(window, text = "What is the title of your Webpage?")
 titlelabel.grid(column = 0, row = 2)
 
 title = tk.StringVar()
-titleEntered = ttk.Entry(window, width = 30, textvariable = name)
+titleEntered = ttk.Entry(window, width = 30, textvariable = titlevar)
 titleEntered.grid(column = 0, row = 3, sticky=tk.E)
 
 headerlabel = ttk.Label(window, text = 'What is the header?')
 headerlabel.grid(column = 0, row = 4)
+
+head = tk.StringVar()
+headEntered = ttk.Entry(window, width = 30, textvariable = header)
 
 button = ttk.Button(window, text = "Set filename", command = nameset)
 button.grid(column= 0, row = 10)
