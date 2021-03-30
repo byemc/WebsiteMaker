@@ -1,6 +1,6 @@
 print('Loading Website Maker GUI by ByeMC')
 print('Based off of Website Maker by ByeMC')
-print('Website Maker is in Early Alpha 0.2')
+print('Website Maker v0.2-alpha.2')
 
 import tkinter as tk
 from tkinter import ttk 
@@ -36,7 +36,10 @@ def nameset():
          label.configure(text = 'FileNotFound, continuing')
  
 def titleset():
-    titlefull = title.get()
+    titlelabel.configure(text = 'Title is now' + title.get())
+
+def headerset():
+    headerlabel.configure(text = 'Header is now' + head.get())
 
 label = ttk.Label(window, text = "What is the filename of your Webpage?")
 label.grid(column = 0, row = 0)
@@ -51,16 +54,29 @@ titlelabel = ttk.Label(window, text = "What is the title of your Webpage?")
 titlelabel.grid(column = 0, row = 2)
 
 title = tk.StringVar()
-titleEntered = ttk.Entry(window, width = 30, textvariable = titlevar)
+titleEntered = ttk.Entry(window, width = 30, textvariable = title)
 titleEntered.grid(column = 0, row = 3, sticky=tk.E)
 
 headerlabel = ttk.Label(window, text = 'What is the header?')
 headerlabel.grid(column = 0, row = 4)
 
 head = tk.StringVar()
-headEntered = ttk.Entry(window, width = 30, textvariable = header)
+headEntered = ttk.Entry(window, width = 30, textvariable = head)
+headEntered.grid(column = 0, row = 5, sticky=tk.E)
+
+bodyLabel = ttk.Label(window, text = 'What is the main text?')
+bodyLabel.grid(column = 0, row = 6)
+
+body = tk.Text(window, height = 5, width = 30, bd = 2)
+body.grid(column = 0, row = 7, sticky = tk.E)
 
 button = ttk.Button(window, text = "Set filename", command = nameset)
-button.grid(column= 0, row = 10)
- 
+button.grid(column= 3, row = 1)
+
+buttonTitle = ttk.Button(window, text = "Set title", command = titleset)
+buttonTitle.grid(column = 3, row = 3)
+
+buttonHeader = ttk.Button(window, text = "Set Header", command = headerset)
+buttonHeader.grid(column = 3, row = 5)
+
 window.mainloop()

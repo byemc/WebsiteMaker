@@ -1,5 +1,5 @@
 print('Loading "Website Maker" by ByeMC')
-print('Website Maker is in Early Alpha 0.1')
+print('Website Maker v0.2-alpha.2')
 
 import tkinter as tk
 from tkinter import ttk
@@ -12,7 +12,7 @@ body = input('Please type/paste the body text for the webpage (use <br> for a ne
 try:
     with open(filename, 'rt') as savecheck:
         overwrite = input('There appears to be a file here. Overwrite? (Y/N): ')
-        if overwrite == 'Y':
+        if overwrite == 'Y' or 'y' or 'yes':
             print('Okay, whatever you say')
             savecheck.close()
         else:
@@ -27,8 +27,22 @@ print('Header grabbed. Tech info:', headertitle)
 print('Grabbing Part 2 of the Header')
 header = open('headertemp2.html', 'rt')
 print('Header grabbed. Tech Info:', header)
-result = headertitle.read() + title + header.read() + '<h2>' + title2 + '</h2> \n <p>' + body + '</p> \n\n\n\n <p><small><small><small>Made with Website Maker by ByeMC</small></small></small></p>'
-print('Current result is: \n', result)
+print('NEW! Grabbing footer...')
+try:
+    with open('footer.html', 'rt') as footcheck:
+        result = headertitle.read() + title + header.read() + '<h2>' + title2 + '''</h2>
+        <p>''' + body + '''</p>
+
+        <p><small><small>Made with <a href="https://byemc.itch.io/webmaker">Website Maker by ByeMC</a>
+        ''' + footcheck.read()
+except FileNotFoundError:
+    result = headertitle.read() + title + header.read() + '<h2>' + title2 + '''</h2>
+    <p>''' + body + '''</p>
+    
+    <p><small><small>Made with <a href="https://byemc.itch.io/webmaker">Website Maker by ByeMC</a></small></small></p>
+    </body>
+    </html>'''
+
 resultfile = open(filename, "wt")
 resultfile.write(result)
 print('FILE WRITTEN')
