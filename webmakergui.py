@@ -36,10 +36,13 @@ def nameset():
          label.configure(text = 'FileNotFound, continuing')
  
 def titleset():
-    titlelabel.configure(text = 'Title is now' + title.get())
+    titlelabel.configure(text = 'Title is now ' + title.get())
 
 def headerset():
-    headerlabel.configure(text = 'Header is now' + head.get())
+    headerlabel.configure(text = 'Header is now ' + head.get())
+
+def bodyset():
+    bodyLabel.configure(text = 'Body is now ' + body.get())
 
 label = ttk.Label(window, text = "What is the filename of your Webpage?")
 label.grid(column = 0, row = 0)
@@ -78,5 +81,8 @@ buttonTitle.grid(column = 3, row = 3)
 
 buttonHeader = ttk.Button(window, text = "Set Header", command = headerset)
 buttonHeader.grid(column = 3, row = 5)
+
+buttonBody = ttk.Button(window, text = "Set Header", command = bodyset)
+buttonBody.grid(column = 3, row = 7)
 
 window.mainloop()
