@@ -1,7 +1,11 @@
 url: "https://byemc.github.io/websitemaker" # the base hostname & protocol for your site
 plugins:
   - jekyll-sitemap
-
+github:
+  latest_py_url: https://github.com/ByeMC/webmaker/releases/download/v0.2-alpha.2/webmaker.py
+  latest_exe_url: https://github.com/ByeMC/webmaker/releases/download/v0.2-alpha.2/WebsiteMakerALPHA.exe
+  pre_py_url: https://github.com/ByeMC/webmaker/releases/download/v0.2-alpha.2/webmaker.py
+  pre_exe_url: https://github.com/ByeMC/webmaker/releases/download/v0.2-alpha.2/WebsiteMakerALPHA.exe
 show_downloads: true
 google_analytics: G-ZGPV9HGRFB
 theme: jekyll-theme-modernist
