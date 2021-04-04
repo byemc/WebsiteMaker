@@ -2,4 +2,6 @@ url: "https://byemc.github.io/websitemaker" # the base hostname & protocol for y
 plugins:
   - jekyll-sitemap
 
+show_downloads: true
+google_analytics: G-ZGPV9HGRFB
 theme: jekyll-theme-modernist
