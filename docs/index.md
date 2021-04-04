@@ -1,7 +1,7 @@
---
+---
 title: "Website Maker Home"
 layout: default
---
+---
 
 # Welcome to Website Maker's page
 
