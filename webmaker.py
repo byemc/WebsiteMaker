@@ -12,8 +12,12 @@ def version():
 Contributers:
 ByeMC
 
-<Did you do work on this program? Add your (user)name here!'''
+<Did you do work on this program? Add your (user)name here!>'''
     print(asciiart)
+
+def niceguysyoushouldcheckoutandifyouaretypingthisoutthenyouarereallydedicatedtofindingeastereggs(password):
+    if password == "Polymars is cool":
+        print('Yes, Polymars IS cool')
 
 def fail(reason):
     print('An error seems to have stopped this from working. Check https://byemc.github.io/docs/webmaker/ for more, or https://github.com/byemc/websitemaker/issues for support. Reason:', reason)
@@ -77,7 +81,8 @@ try:
 </html>'''
 
     except FileNotFoundError:
-        fail('Required files couldn\'t be found, please check the documentaion')
+        try:
+            header = open('header.html', 'rt') # use one-file method
 except FileNotFoundError:
     fail('New generation hasn\'t been made yet')
     
