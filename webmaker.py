@@ -45,6 +45,7 @@ print('Checking file')
 
 try: 
     with open(filename, 'rt') as filecheck:
+        from time import sleep
         sleep(0.2)
         overwrite = input('There appears to be a file here. Overwrite? (Y/N): ')
         if overwrite == 'Y' or 'y' or 'yes':
@@ -59,6 +60,43 @@ except FileNotFoundError:
     print('Grabbing header file')
 
 try:
+        try:
+            header = open('header.html', 'rt') # use one-file method
+            try:
+                footer = open('footer.html', 'rt') # checks for footer
+                result = '''<html>
+<head>
+<title>''' + title + '''</title>
+''' + header.read() + '''
+<h2>''' + head + '''</h2>
+<p>''' + body + '''</p>
+<br />
+<blockquote><small>Made with <a href="https://byemc.github.io/WebsiteMaker/">Website Maker</a> by <a href="https://github.com/byemc/">ByeMC</a>
+''' + footer.read()
+            except FileNotFoundError:
+                result = '''<html>
+<head>
+<title>''' + title + '''</title>
+''' + header.read() + '''
+<h2>''' + head + '''
+<p>''' + body + '''</p>
+<br />
+<blockquote><small>Made with <a href="https://byemc.github.io/WebsiteMaker/">Website Maker</a> by <a href="https://github.com/byemc/">ByeMC</a>
+</body>
+</html>'''
+        except FileNotFoundError:
+            result = '''<html>
+<head>
+<title>''' + title + '''</title>
+</head>
+<h2>''' + head + '''
+<p>''' + body + '''</p>
+<br />
+<blockquote><small>Made with <a href="https://byemc.github.io/WebsiteMaker/">Website Maker</a> by <a href="https://github.com/byemc/">ByeMC</a>
+</body>
+</html>'''
+
+except FileNotFoundError:
     headertitle = open('headertemp.html', 'rt') # use the old method of making files
     try: # old file path found, looking for next part
         headertitle2 = open('headertemp2.html', 'rt')
@@ -79,12 +117,8 @@ try:
 <p><small><small>Made with <a href="https://byemc.itch.io/webmaker">Website Maker by ByeMC</a></small></small></p>
 </body>
 </html>'''
-
     except FileNotFoundError:
-        try:
-            header = open('header.html', 'rt') # use one-file method
-except FileNotFoundError:
-    fail('New generation hasn\'t been made yet')
+        fail('Please put files')
     
     
 resultfile = open(filename, "wt")
