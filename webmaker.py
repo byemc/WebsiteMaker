@@ -25,8 +25,20 @@ except FileNotFoundError:
     print('FileNotFound, making the file')
 
     print('Grabbing header file')
-
 try:
-    webmaker.onefile(filename, title, head, body)
+    with open('header.html', 'r') as pagecheck:
+        try:
+            pagecheck.close()
+            webmaker.onefile(filename, title, head, body, 1)
+        except FileNotFoundError:
+            webmaker.fail('Files couldn\'t be found', 1)
 except FileNotFoundError:
-    webmaker.fail('No generation available')
+    try:
+        with open('template.html', 'r') as pagecheck:
+            try:
+                pagecheck.close()
+                webmaker.singlefile(filename, title, head, body, 1)
+            except FileNotFoundError:
+                webmaker.fail('Files couldn\'t be found', 1)
+    except FileNotFoundError:
+        webmaker.fail('No compatible files found.', 1)

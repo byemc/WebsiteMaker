@@ -1,0 +1,4 @@
+Current tests:
+Automation [Planned]
+Jekyll Support [Planned]
+CSS Support [Planned]
