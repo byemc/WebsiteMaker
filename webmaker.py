@@ -29,4 +29,4 @@ except FileNotFoundError:
 try:
     webmaker.onefile(filename, title, head, body)
 except FileNotFoundError:
-    fail('No generation available')
+    webmaker.fail('No generation available')
