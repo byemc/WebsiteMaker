@@ -27,11 +27,6 @@ except FileNotFoundError:
     print('Grabbing header file')
 
 try:
-    try:
-        webmaker.onefile(filename, title, head, body)
-    except FileNotFoundError:
-        oldmethod(filename, title, head, body)
+    webmaker.onefile(filename, title, head, body)
 except FileNotFoundError:
     fail('No generation available')
-
-

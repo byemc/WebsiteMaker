@@ -23,14 +23,15 @@ def niceguysyoushouldcheckoutandifyouaretypingthisoutthenyouarereallydedicatedto
     if password == "Polymars is cool":
         print('Yes, Polymars IS cool')
 
-def fail(reason):
+def fail(reason, quit=0):
     '''Shows an error message. It's easier to call errors with this.
     USAGE: fail(reason)'''
     print('An error seems to have stopped this from working. Check https://byemc.github.io/docs/webmaker/ for more, or https://github.com/byemc/websitemaker/issues for support. Reason:', reason)
-    import sys
-    sys.exit()
+    if quit == 1:
+        import sys
+        sys.exit()
 
-def onefile(filename, title, head, body):
+def onefile(filename, title, head, body, fail_quit=0):
     """I would write a help file but it's 9:22pm and i want sleep
     USAGE: onefile(filename, title, head, body)"""
     try:
@@ -59,34 +60,6 @@ def onefile(filename, title, head, body):
 </html>'''
     except FileNotFoundError:
         fail('Please use the correct method')
-    resultfile = open(filename, "wt")
-    resultfile.write(result)
-    print('FILE WRITTEN')
-
-def oldmethod(filename, title, head, body):
-    filename = filename + '.html'
-    headertitle = open('headertemp.html', 'rt') # use the old method of making files
-    try: # old file path found, looking for next part
-        headertitle2 = open('headertemp2.html', 'rt')
-        print('Old header file type detected, using WebMaker v0.1-alpha - v0.2-alpha.2 generation')
-        print('Grabbing footer...')
-        try:
-            with open('footer.html', 'rt') as footcheck:
-                result = headertitle.read() + title + headertitle2.read() + '<h2>' + head + '''</h2>
-<p>''' + body + '''</p>
-
-<p><small><small>Made with <a href="https://byemc.itch.io/webmaker">Website Maker by ByeMC</a>
-''' + footcheck.read()
-
-        except FileNotFoundError:
-            result = headertitle.read() + title + headertitle2.read() + '<h2>' + head + '''</h2>
-<p>''' + body + '''</p>
-    
-<p><small><small>Made with <a href="https://byemc.itch.io/webmaker">Website Maker by ByeMC</a></small></small></p>
-</body>
-</html>'''
-    except FileNotFoundError:
-        fail('Damn IT!')
     resultfile = open(filename, "wt")
     resultfile.write(result)
     print('FILE WRITTEN')
