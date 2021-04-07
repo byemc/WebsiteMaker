@@ -64,6 +64,7 @@ def onefile(filename, title, head, body):
     print('FILE WRITTEN')
 
 def oldmethod(filename, title, head, body):
+    filename = filename + '.html'
     headertitle = open('headertemp.html', 'rt') # use the old method of making files
     try: # old file path found, looking for next part
         headertitle2 = open('headertemp2.html', 'rt')
