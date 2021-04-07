@@ -64,6 +64,15 @@ def onefile(filename, title, head, body, fail_quit=0):
     resultfile.write(result)
     print('FILE WRITTEN')
 
+def singlefile(filename, title, head, body, fail=0):
+    filename = filename +'.html'
+    result = open(filename, 'wt')
+    try:
+        template = open('template.html', 'rt')
+    except FileNotFoundError:
+        fail('Please make a template called "template.html"', fail)
+    result.write(template.read().format(title, head, body))
+
 print('''
 .__..........__.._........._ _.........__  __......._..BETA VERSION.
 .\ \......../ / | |.......(_| |.......|  \/  |.....| |..............            
