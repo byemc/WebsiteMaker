@@ -74,12 +74,23 @@ def singlefile(filename, title, head, body, fail=0):
     result.write(template.read().format(title, head, body))
 
 print('''
-.__..........__.._........._ _.........__  __......._..BETA VERSION.
+.__..........__.._........._ _.........__  __......._...............
 .\ \......../ / | |.......(_| |.......|  \/  |.....| |..............            
 ..\ \../\../ __.| |__  ___ _| |_ ___..| \  / |.__ _| |._____ _ __ ..
 ...\ \/  \/ / _ | '_ \/ __| | __/ _ \.| |\/| |/ _` | |/ / _ | '__|..
 ....\  /\  |  __| |_) \__ | | ||  __/.| |..| | (_| |   |  __| |.....   
 .....\/..\/.\___|_.__/|___|_|\__\___|.|_|..|_|\__,_|_ by ByeMC; v1.0
 
+
+^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V
+
+VERSION 1.0 "PolyMars"
+
+Rated 10/10 by PolyMars
+
+This is free software. If you've paid for the program or the library,
+please as for a refund, as you may have been scammed.
+
+V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^^V^V^V
 
 ''')

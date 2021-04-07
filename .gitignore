@@ -348,3 +348,20 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+# binary files
+webmaker.spec
+Analysis-00.toc
+base_library.zip
+EXE-00.toc
+PKG-00.pkg
+PKG-00.toc
+PYZ-00.pyz
+PYZ-00.toc
+Tree-00.toc
+Tree-01.toc
+Tree-02.toc
+warn-webmaker.txt
+webmaker.exe.manifest
+xref-webmaker.html
+webmaker.exe
