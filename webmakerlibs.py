@@ -31,7 +31,7 @@ def fail(reason, quit=0):
         import sys
         sys.exit()
 
-def onefile(filename, title, head, body, fail_quit=0):
+def onefile(filename, title, head, body, font_face="serif"):
     """I would write a help file but it's 9:22pm and i want sleep
     USAGE: onefile(filename, title, head, body)"""
     try:
@@ -64,14 +64,35 @@ def onefile(filename, title, head, body, fail_quit=0):
     resultfile.write(result)
     print('FILE WRITTEN')
 
-def singlefile(filename, title, head, body, fail=0):
-    filename = filename +'.html'
+def singlefile(filename, title, head, body, font_face="serif"):
     result = open(filename, 'wt')
     try:
         template = open('template.html', 'rt')
     except FileNotFoundError:
         fail('Please make a template called "template.html"', fail)
-    result.write(template.read().format(title, head, body))
+    result.write(template.read().format(title, font_face, head, body))
+
+def jekyll(filename, title, head, body, font_face="serif", file_format="md"):
+    '''Makes a webpage compatible with Jekyll. Please use jekyll_site() for making a whole site.
+    USAGE: jekyll(filename, title, head, body, font_face*, file_format*)
+    * Optional
+    filename = the name of the file. doesn't include ".md" or ".html" extentions.
+    title = the name that appears in the title bar of a tab or window. Common examples include "Home | ByeMC" and "Quickstart - Website Maker Documentaion"
+    head = the header that appears at the top of the page, commonly a <h2> tag.
+    body = the main text for the website.
+    font_face: The font used in the webpage. The default here is serif, but feel free to put whatever font you want. Common universal font-types are "serif", "sans-serif" and "monospace"
+    file_format: The format used for the file. The default here is .md (markdown), but you can put whatever the hell you want here. However, it makes no sense no to use "html", "md" or "markdown" unless you need it in a text file or something
+    '''
+    filename = filename + '.' + file_format
+    front_matter = '''---
+font: {}
+title: {}
+header: {}
+body: {}
+---'''.format(font_face, title, head, body)
+    print('This document is called {} and it\'s Jekyll front matter is \n{}'.format(filename, front_matter))
+
+
 
 print('''
 .__..........__.._........._ _.........__  __......._...............
@@ -81,7 +102,6 @@ print('''
 ....\  /\  |  __| |_) \__ | | ||  __/.| |..| | (_| |   |  __| |.....   
 .....\/..\/.\___|_.__/|___|_|\__\___|.|_|..|_|\__,_|_ by ByeMC; v1.0
 
-
 ^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V
 
 VERSION 1.0 "PolyMars"
@@ -89,7 +109,7 @@ VERSION 1.0 "PolyMars"
 Rated 10/10 by PolyMars
 
 This is free software. If you've paid for the program or the library,
-please as for a refund, as you may have been scammed.
+please ask for a refund, as you may have been scammed.
 
 V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^^V^V^V
 

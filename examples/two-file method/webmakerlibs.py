@@ -31,7 +31,7 @@ def fail(reason, quit=0):
         import sys
         sys.exit()
 
-def onefile(filename, title, head, body, fail_quit=0):
+def onefile(filename, title, head, body, font_face="serif"):
     """I would write a help file but it's 9:22pm and i want sleep
     USAGE: onefile(filename, title, head, body)"""
     try:
@@ -64,22 +64,32 @@ def onefile(filename, title, head, body, fail_quit=0):
     resultfile.write(result)
     print('FILE WRITTEN')
 
-def singlefile(filename, title, head, body, fail=0):
-    filename = filename +'.html'
+def singlefile(filename, title, head, body, font_face="serif"):
     result = open(filename, 'wt')
     try:
         template = open('template.html', 'rt')
     except FileNotFoundError:
         fail('Please make a template called "template.html"', fail)
-    result.write(template.read().format(title, head, body))
+    result.write(template.read().format(title, font_face, head, body))
 
 print('''
-.__..........__.._........._ _.........__  __......._..BETA VERSION.
+.__..........__.._........._ _.........__  __......._...............
 .\ \......../ / | |.......(_| |.......|  \/  |.....| |..............            
 ..\ \../\../ __.| |__  ___ _| |_ ___..| \  / |.__ _| |._____ _ __ ..
 ...\ \/  \/ / _ | '_ \/ __| | __/ _ \.| |\/| |/ _` | |/ / _ | '__|..
 ....\  /\  |  __| |_) \__ | | ||  __/.| |..| | (_| |   |  __| |.....   
 .....\/..\/.\___|_.__/|___|_|\__\___|.|_|..|_|\__,_|_ by ByeMC; v1.0
 
+
+^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V
+
+VERSION 1.0 "PolyMars"
+
+Rated 10/10 by PolyMars
+
+This is free software. If you've paid for the program or the library,
+please as for a refund, as you may have been scammed.
+
+V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^V^^V^V^V
 
 ''')

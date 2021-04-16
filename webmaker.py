@@ -6,6 +6,7 @@ def main():
     head = input('Please put the header for the webpage (using a <h1> tag, the big title at the top): ')
     body = input('''Please type/paste the body text for the webpage (use <br> for a new line: 
 ''')
+    font = input('Please type the font you would like to use: ')
     print('Checking file')
     try: 
         with open(filename, 'rt') as filecheck:
@@ -27,7 +28,7 @@ def main():
         with open('header.html', 'r') as pagecheck:
             try:
                 pagecheck.close()
-                webmaker.onefile(filename, title, head, body, 1)
+                webmaker.onefile(filename, title, head, body, font)
             except FileNotFoundError:
                 webmaker.fail('Files couldn\'t be found', 1)
     except FileNotFoundError:
@@ -35,7 +36,7 @@ def main():
             with open('template.html', 'r') as pagecheck:
                 try:
                     pagecheck.close()
-                    webmaker.singlefile(filename, title, head, body, 1)
+                    webmaker.singlefile(filename, title, head, body, font)
                 except FileNotFoundError:
                     webmaker.fail('Files couldn\'t be found', 1)
         except FileNotFoundError:
