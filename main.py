@@ -3,9 +3,11 @@
 import webmaker
 import argparse
 
+webmaker.version()
+
 parser = argparse.ArgumentParser(description='A Command Line Maker for websites.')
 settings = parser.add_argument_group('Settings')
-settings.add_argument('-m', '--method', help='Pick between the SingleFile and TwoFile methods. Type 1 for SingleFile, and 2 for TwoFile.', type=int)
+settings.add_argument('-m', '--method', help='Pick between the SingleFile and TwoFile methods. Type 1 for SingleFile, and 2 for TwoFile.', type=int, default=1)
 meta = parser.add_argument_group('Site Data')
 meta.add_argument('-n', '--name', help='The name of the webpage. You have to add the file extention.', default='potatoclub.html')
 meta.add_argument('-t', '--title', help='The title that appears at the top of the browser window.', default='Welcome to the Potato Club\'s official website!')
@@ -19,5 +21,11 @@ meta.add_argument('-f', '--font', help='The font you would like to use', default
 args = parser.parse_args()
 
 if args.method == 1:
-    
     webmaker.singlefile(args.name, args.title, args.header, args.body, args.font)
+elif args.method == 2:
+    webmaker.onefile(args.name, args.title, args.header, args.body, args.font)
+else:
+    webmaker.fail('Please use the correct method number')
+    import os
+    os.system("python main.py -h")
+    os.system("python3 main.py -h")
